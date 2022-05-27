@@ -1,4 +1,9 @@
 package ilp.edu.RuthE.service;
 
-public class IEstudianteService {
+import ilp.edu.RuthE.entity.Estudiante;
+
+public interface IEstudianteService {
+    Estudiante obtenerestudianteporcodigo(String codigo);
+
+
 }

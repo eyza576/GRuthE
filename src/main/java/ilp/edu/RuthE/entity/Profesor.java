@@ -1,25 +1,20 @@
 package ilp.edu.RuthE.entity;
 
-import javax.persistence.*;
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
 
 @Entity
 @Table(name ="profesor")
-public class Profesor  {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idprofesor")
-    private  Long idprofesor;
-    private String salario;
+@PrimaryKeyJoinColumn(referencedColumnName = "idpersona")
+public class Profesor extends  Persona{
 
-    @OneToMany(mappedBy = "profesor")
-    private List<Estudiante> estudiantes;
+    private String salario;
 
     public Profesor() {
     }
 
-    public Profesor(Long idprofesor, String salario) {
-        this.idprofesor = idprofesor;
+    public Profesor(String salario) {
         this.salario = salario;
     }
 

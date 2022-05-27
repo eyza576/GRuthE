@@ -7,4 +7,5 @@ import java.util.List;
 public interface IPersonaService {
     //listar personas
     List<Persona> listarPersona();
+
 }

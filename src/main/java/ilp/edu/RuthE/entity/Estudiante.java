@@ -1,28 +1,22 @@
 package ilp.edu.RuthE.entity;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "estudiante")
 @PrimaryKeyJoinColumn(referencedColumnName = "idpersona")
-public class Estudiante  extends Persona{
-
+public class Estudiante  extends  Persona{
     private String codigo;
-    private String verificarserie;
+    private String serie;
 
-    @OneToOne(cascade=CascadeType.ALL)//one-to-one
-    @JoinColumn(name="idprofesor")
-    private Profesor profesor;
-
-    public Estudiante(String codigo, String verificarserie) {
-        this.codigo = codigo;
-        this.verificarserie = verificarserie;
+    public Estudiante() {
     }
 
-    public Estudiante(Long idpersona, String nombre, int telefono, String email, String codigo, String verificarserie) {
-        super(idpersona, nombre, telefono, email);
+    public Estudiante(String codigo, String serie) {
         this.codigo = codigo;
-        this.verificarserie = verificarserie;
+        this.serie = serie;
     }
 
     public String getCodigo() {
@@ -33,11 +27,11 @@ public class Estudiante  extends Persona{
         this.codigo = codigo;
     }
 
-    public String getVerificarserie() {
-        return verificarserie;
+    public String getSerie() {
+        return serie;
     }
 
-    public void setVerificarserie(String verificarserie) {
-        this.verificarserie = verificarserie;
+    public void setSerie(String serie) {
+        this.serie = serie;
     }
 }
