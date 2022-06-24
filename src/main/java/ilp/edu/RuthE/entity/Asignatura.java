@@ -1,30 +1,26 @@
 package ilp.edu.RuthE.entity;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
+@Table(name = "asignatura")
 public class Asignatura {
- @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long idasignatura;
- private String nombre;
- @OneToOne
-    @JoinColumn(name = "idpersona",referencedColumnName = "idpersona")
-    private Persona persona;
- @ManyToMany
-    @JoinTable(name = "asignaturas_materias",joinColumns = @JoinColumn(name = "idasignaturas"),inverseJoinColumns = @JoinColumn(name = "iddocente"))
-    private Set<Docente>nuevo=new HashSet<>();
+    private  String denoominacion;
+    private  String sigla;
+    private String credito;
 
     public Asignatura() {
     }
 
-    public Asignatura(Long idasignatura, String nombre, Persona persona, Set<Docente> nuevo) {
+    public Asignatura(Long idasignatura, String denoominacion, String sigla, String credito) {
         this.idasignatura = idasignatura;
-        this.nombre = nombre;
-        this.persona = persona;
-        this.nuevo = nuevo;
+        this.denoominacion = denoominacion;
+        this.sigla = sigla;
+        this.credito = credito;
     }
 
     public Long getIdasignatura() {
@@ -35,27 +31,27 @@ public class Asignatura {
         this.idasignatura = idasignatura;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getDenoominacion() {
+        return denoominacion;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setDenoominacion(String denoominacion) {
+        this.denoominacion = denoominacion;
     }
 
-    public Persona getPersona() {
-        return persona;
+    public String getSigla() {
+        return sigla;
     }
 
-    public void setPersona(Persona persona) {
-        this.persona = persona;
+    public void setSigla(String sigla) {
+        this.sigla = sigla;
     }
 
-    public Set<Docente> getNuevo() {
-        return nuevo;
+    public String getCredito() {
+        return credito;
     }
 
-    public void setNuevo(Set<Docente> nuevo) {
-        this.nuevo = nuevo;
+    public void setCredito(String credito) {
+        this.credito = credito;
     }
 }
